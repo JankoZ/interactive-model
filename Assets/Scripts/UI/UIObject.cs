@@ -30,12 +30,17 @@ namespace UI
             _linkedObject = linkedObject;
             _manager = manager;
             
+            SetupListeners();
+        }
+
+        private void SetupListeners()
+        {
             if (Camera.main)
             {
                 var cameraController = Camera.main.GetComponent<CameraController>();
                 GetComponent<Button>().onClick.AddListener(() => cameraController.FocusOn(_linkedObject.transform));
             }
-
+            
             selectionToggle.onValueChanged.AddListener(OnToggleClicked);
             redButton.onClick.AddListener(() => _linkedObject.SetColor(redColor));
             greenButton.onClick.AddListener(() => _linkedObject.SetColor(greenColor));

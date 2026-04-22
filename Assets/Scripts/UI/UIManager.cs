@@ -34,6 +34,11 @@ namespace UI
                 _uiObjects.Add(uiObj);
             }
             
+            SetupListeners();
+        }
+
+        private void SetupListeners()
+        {
             transparencyButton1.onClick.AddListener(() => SetTransparencyToSelected(1f));
             transparencyButton2.onClick.AddListener(() => SetTransparencyToSelected(0.75f));
             transparencyButton3.onClick.AddListener(() => SetTransparencyToSelected(0.5f));
